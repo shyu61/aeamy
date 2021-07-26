@@ -60,7 +60,7 @@ export const LiveLaunch = () => {
   }, [localStream, cameraEnabled]);
 
   useEffect(() => {
-    const conn = Ayame.connection('wss://ayame-labo.shiguredo.jp/signaling', RoomId);
+    const conn = Ayame.connection('ws://127.0.0.1:3000/signaling', RoomId);
     setPc(conn);
     // pcだと更新が間に合わないことがあるためconnを使う
     setMediaStream(conn);
