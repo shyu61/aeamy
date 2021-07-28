@@ -9,7 +9,8 @@ import VideocamIcon from '@material-ui/icons/Videocam';
 import VideocamOffIcon from '@material-ui/icons/VideocamOff';
 import { LivePannel } from '../components/LivePannel';
 
-const RoomId = 'shyu61-no-heya';
+const ROOM_ID = 'shyu61-no-heya';
+const SIGNALING_SERVER_ROOT_URL = 'ayame-server-u7gxmercbq-an.a.run.app';
 
 export const LiveLaunch = () => {
   const [pc, setPc] = useState<Connection | null>(null);
@@ -60,7 +61,7 @@ export const LiveLaunch = () => {
   }, [localStream, cameraEnabled]);
 
   useEffect(() => {
-    const conn = Ayame.connection('ws://ayame-server-u7gxmercbq-an.a.run.app:8080/signaling', RoomId);
+    const conn = Ayame.connection(`ws://${SIGNALING_SERVER_ROOT_URL}/signaling`, ROOM_ID);
     setPc(conn);
     // pcだと更新が間に合わないことがあるためconnを使う
     setMediaStream(conn);
