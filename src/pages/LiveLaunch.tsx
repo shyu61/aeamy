@@ -61,7 +61,7 @@ export const LiveLaunch = () => {
   }, [localStream, cameraEnabled]);
 
   useEffect(() => {
-    const conn = Ayame.connection(`ws://${SIGNALING_SERVER_ROOT_URL}/signaling`, ROOM_ID);
+    const conn = Ayame.connection(`wss://${SIGNALING_SERVER_ROOT_URL}/signaling`, ROOM_ID);
     setPc(conn);
     // pcだと更新が間に合わないことがあるためconnを使う
     setMediaStream(conn);
